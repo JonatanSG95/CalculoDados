@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 from dados import dados_base
+from calculos import calculo_promedio
 
 ventana_principal = Tk()
 ventana_principal.title("Calculadora")
@@ -14,9 +15,10 @@ mensaje = Label(ventana_principal, text='Elija que dado tirar')
 mensaje.pack()
 
 def mostrar_seleccionado():
-    elegido = lista.get()
+    elegido = int(lista.get())
+    promedio_daño = calculo_promedio(elegido)
     messagebox.showinfo(
-        message=f"La opcion seleccionada es: {elegido}",
+        message=f"El promedio general con el dado elegido es de: {promedio_daño}",
         title="seleccion"
     )
 
